@@ -47,13 +47,13 @@ uploaded_file = st.file_uploader("Upload an image", type=["png","jpg","jpeg"])
 if uploaded_file:
     # Open uploaded image
     image = Image.open(uploaded_file).convert("RGB")
-    st.image(image, caption="Original Image", width=True)
+    st.image(image, caption="Original Image", use_column_width=True)
     
     # Process
     with st.spinner("Generating dice image..."):
         result = process_image(image)
     
-    st.image(result, caption="Dice Image Output", width=True)
+    st.image(result, caption="Dice Image Output", use_column_width=True)
 
     # Download button
     buf = io.BytesIO()
